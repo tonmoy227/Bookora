@@ -1,0 +1,124 @@
+.bk-header-section {
+	top: 0;
+	left: 0;
+	z-index: 10;
+	width: 100%;
+	position: absolute;
+	.navbar-nav {
+		flex-direction: row;
+	}
+	.bk-mobile-menu-btn {
+		display: none;
+		@media #{$md,$sm,$xs,$xxs} {
+			display: block;
+		}
+		button {
+			padding: 0;
+			width: 30px;
+			height: 18px;
+			border: none;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			background-color: transparent;
+			justify-content: space-between;
+			span {
+				width: 19px;
+				height: 2px;
+				display: block;
+				background-color: #000;
+				&:nth-child(even) {
+					width: 29px;
+				}
+			}
+		}
+	}
+	&:is(.header_style_one) {
+		.header-top {
+			padding: 16px 40px;
+			background-color: #004040;
+			@media #{$lg} {
+				padding: 15px;
+			}
+			@media #{$md,$sm,$xs,$xxs} {
+				display: none !important;
+			}
+		}
+		.top-social {
+			gap: 8px;
+			a {
+				width: 36px;
+				color: #fff;
+				height: 36px;
+				display: flex;
+				font-size: 15px;
+				align-items: center;
+				border-radius: 100%;
+				justify-content: center;
+				border: 1px solid #FFFFFF1A;
+				&:hover {
+					background-color: #FFFFFF1A;
+				}
+			}
+		}
+		.top-cta {
+			gap: 16px;
+			.item-cta {
+				gap: 8px;
+				.item-icon {
+					width: 36px;
+					height: 36px;
+					border-radius: 100%;
+					background-color: #FFFFFF1A;
+				}
+				.item-text {
+					color: #fff;
+					font-size: 16px;
+				}
+			}
+		}
+		.header-navigation {
+			padding: 24px 40px;
+			@media #{$lg,$md,$sm,$xs,$xxs} {
+				padding: 15px;
+			}
+			.logo-navigation {
+				gap: 150px;
+				@media #{$lg,$md,$sm,$xs,$xxs} {
+					gap: 50px;
+				}
+			}
+			.main-navigation {
+				@media #{$md,$sm,$xs,$xxs} {
+					display: none;
+				}
+				li {
+					margin: 0px 16px;
+					@media #{$lg} {
+						margin: 0px 12px;
+					}
+					a {
+						font-size: 16px;
+					}
+				}
+			}
+		}
+		.cta-btn-wrap {
+			gap: 36px;
+			a {
+				font-weight: 500;
+				color: var(--bk-title-color);
+				@media #{$xs,$xxs} {
+					display: none;
+				}
+				&:nth-child(2) {
+					color: #fff;
+					padding: 13px 24px;
+					border-radius: 12px;
+					background-color: var(--bk-prime-c);
+				}
+			}
+		}
+
+	}
+}
