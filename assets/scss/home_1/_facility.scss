@@ -9,7 +9,7 @@
 		overflow: hidden;
 		padding-top: 120px;
 		border-radius: 32px;
-		padding-bottom: 340px;
+		padding-bottom: 320px;
 	}
 }
 .bk-facilites-content {
@@ -90,7 +90,7 @@
 		@media #{$xxl,$xl,$lg,$md,$sm,$xs,$xxs} {
 			left: 0;
 			right: 0;
-			width: 100%;
+			width: 100%; 
 			margin: 0 auto;
 		}
 	}

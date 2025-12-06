@@ -16,6 +16,9 @@
 		@media #{$md,$sm,$xs,$xxs} {
 			flex-wrap: wrap;
 		}
+		.bk-sec-title .sec_title {
+			font-size: 40px;
+		}
 	}
 	.ab-img1 {
 		overflow: hidden;

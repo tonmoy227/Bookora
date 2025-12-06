@@ -84,6 +84,27 @@ Last change:    00/00/00
 	$('[data-background]').each(function() {
 		$(this).css('background-image', 'url('+ $(this).attr('data-background') + ')');
 	});
+
+	$('.marquee-left').marquee({
+		gap: 0,
+		speed: 60,
+		delayBeforeStart: 0,
+		direction: 'left',
+		duplicated: true,
+		pauseOnHover: true,
+		startVisible:true,
+	});
+	$('.marquee-right').marquee({
+		gap: 28,
+		speed: 40,
+		delayBeforeStart: 0,
+		direction: 'right',
+		duplicated: true,
+		pauseOnHover: true,
+		startVisible:true,
+	});
+
+
 	gsap.registerPlugin(ScrollTrigger);
 	
 	// Animation
@@ -129,7 +150,95 @@ Last change:    00/00/00
 	});
 	
 
+	if ($('.bk-service-slider').length > 0 ) {
+		var slider = new Swiper('.bk-service-slider', {
+			slidesPerView: 3,
+			loop: true,
+			spaceBetween: 24,
+			speed: 1000,
+			navigation: {
+				nextEl: ".lg-ser-next",
+				prevEl: ".lg-ser-prev",
+			},
+			pagination: {
+				el: ".lg-ser-pagi",
+				type: 'fraction',
+				formatFractionCurrent: function (number) {
+					return number < 10 ? '0'+ number: number;
+				},
+				formatFractionTotal: function (number) {
+					return number < 10 ? '0'+ number : number;
+				}
+			},
+			scrollbar: {
+				el: '.lg-ser-scrollbar',
+				draggable: false,
+			},
+			breakpoints: {
+				'1600': {
+					slidesPerView: 3,
+				},
+				'1200': {
+					slidesPerView: 3,
+				},
+				'991': {
+					slidesPerView: 2,
+				},
+				'768': {
+					slidesPerView: 2,
+				},
+				'576': {
+					slidesPerView: 1,
+				},
+				'0': {
+					slidesPerView: 1,
+				},
+			},
+		});
+	};
 
+	
+	if (window.matchMedia("(min-width: 1200px)").matches) {
+		var collab = gsap.timeline({
+			scrollTrigger: {
+				trigger: ".bk-testimonial-sec",
+				start: "top 20%",
+				toggleActions: "play reverse play reverse",
+				markers: false,
+			},
+		})
+		collab
+		.from(".bk-testi-item", {
+			yPercent: 100,
+			opacity: 0,
+			ease: "elastic.out(1,0.8)",
+			duration: 2,
+			stagger: .3,
+		})
+	}
 
+	if (window.matchMedia("(min-width: 1200px)").matches) {
+		let areas = Array.from(document.querySelectorAll(".bk-testi-area"));
+		let itemsToAnimate = areas.slice(1).reverse();
+		var BKTesti = gsap.timeline({
+			scrollTrigger: {
+				trigger: '.bk-testimonial-sec',
+				start: "top 0%",
+				end: "bottom 30%",
+				scrub: 1.5,
+				pin: true,
+				pinSpacing: true,
+				markers: false
+			}
+		});
+		itemsToAnimate.forEach(item => {
+			BKTesti.to(item, {
+				yPercent: -100,
+				opacity: 0,
+				ease: "power1.out"
+			});
+		});
+
+	}
 
 })(jQuery);
