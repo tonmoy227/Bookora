@@ -279,24 +279,24 @@ Last change:    00/00/00
 	};
 
 	
-	if (window.matchMedia("(min-width: 1200px)").matches) {
-		var collab = gsap.timeline({
-			scrollTrigger: {
-				trigger: ".bk-testimonial-sec",
-				start: "top 20%",
-				toggleActions: "play reverse play reverse",
-				markers: false,
-			},
-		})
-		collab
-		.from(".bk-testi-item", {
-			yPercent: 100,
-			opacity: 0,
-			ease: "elastic.out(1,0.8)",
-			duration: 2,
-			stagger: .3,
-		})
-	}
+	// if (window.matchMedia("(min-width: 1200px)").matches) {
+	// 	var collab = gsap.timeline({
+	// 		scrollTrigger: {
+	// 			trigger: ".bk-testimonial-sec",
+	// 			start: "top 20%",
+	// 			toggleActions: "play reverse play reverse",
+	// 			markers: false,
+	// 		},
+	// 	})
+	// 	collab
+	// 	.from(".bk-testi-item", {
+	// 		yPercent: 100,
+	// 		opacity: 0,
+	// 		ease: "elastic.out(1,0.8)",
+	// 		duration: 2,
+	// 		stagger: .3,
+	// 	})
+	// }
 
 	if (window.matchMedia("(min-width: 1200px)").matches) {
 		let areas = Array.from(document.querySelectorAll(".bk-testi-area"));
@@ -306,7 +306,7 @@ Last change:    00/00/00
 				trigger: '.bk-testimonial-sec',
 				start: "top 0%",
 				end: "bottom 30%",
-				scrub: 1.5,
+				scrub: 2,
 				pin: true,
 				pinSpacing: true,
 				markers: false,
@@ -314,8 +314,7 @@ Last change:    00/00/00
 		});
 		itemsToAnimate.forEach(item => {
 			BKTesti.to(item, {
-				yPercent: -100,
-				opacity: 0,
+				yPercent: -200,
 				ease: "power1.out"
 			});
 		});
@@ -328,9 +327,9 @@ Last change:    00/00/00
 			loop: true,
 			autoplay: {
 				enabled: true,
-				delay: 6000
+				delay: 1000
 			},
-			speed: 400,
+			speed: 1000,
 			breakpoints: {
 				'1600': {
 					slidesPerView: 4,
