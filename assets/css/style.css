@@ -3269,6 +3269,7 @@ a:hover, a:focus {
 .bk-service-item .item-text h3 {
   font-size: 28px;
   font-weight: 700;
+  padding-bottom: 10px;
 }
 @media (max-width: 480px) {
   .bk-service-item .item-text h3 {
