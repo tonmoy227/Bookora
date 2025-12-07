@@ -16,6 +16,19 @@
 		max-width: 505px;
 	}
 }
+@keyframes hover_appear {
+	0% {
+		opacity: 1;
+	}
+	40% {
+		opacity: 1;
+	}
+	100% {
+		width: 200%;
+		height: 200%;
+		opacity: 0;
+	}
+}
 .bk-service-item {
 	padding: 12px;
 	border-radius: 12px;
@@ -24,6 +37,25 @@
 		overflow: hidden;
 		border-radius: 12px;
 		margin-bottom: 12px;
+		position: relative;
+		img {
+			transition: all 500ms ease-in-out;
+		}
+		&:before {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			display: block;
+			content: "";
+			width: 0;
+			height: 0;
+			background: rgba(255, 255, 255, 0.2);
+			border-radius: 12px;
+			-webkit-transform: translate(-50%, -50%);
+			transform: translate(-50%, -50%);
+			opacity: 0;
+			z-index: 10;
+		}
 	}
 	.item-text {
 		border-radius: 20px;
@@ -78,6 +110,14 @@
 		}
 	}
 	&:hover {
+		.item-img {
+			&:before {
+				animation: hover_appear 0.75s;
+			}
+			img {
+				transform: scale(1.1);
+			}
+		}
 		.item-text {
 			background-color: var(--bk-prime-c);
 			h3 {

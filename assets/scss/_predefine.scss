@@ -331,6 +331,9 @@ a {
 		padding: 13px 22px;
 		border-radius: 12px;
 		background-color: var(--bk-prime-c);
+		&:hover {
+			background-color: #004040;
+		}
 	}
 }
 .swiper-container {

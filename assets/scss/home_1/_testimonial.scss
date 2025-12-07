@@ -1,7 +1,10 @@
+
 .bk-testimonial-content {
 	z-index: 1;
+	overflow: hidden;
 	padding: 265px 0px;
 	@media #{$lg,$md,$sm,$xs,$xxs} {
+		height: auto;
 		padding: 120px 0px;
 	}
 	.bk-testi-bg {

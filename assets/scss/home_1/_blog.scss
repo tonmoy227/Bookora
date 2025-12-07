@@ -48,6 +48,9 @@
 		overflow: hidden;
 		border-radius: 12px;
 		margin-bottom: 25px;
+		img {
+			transition: 1000ms cubic-bezier(0.5, -0.75, 0.3, 1.5);
+		}
 	}
 	.item-text {
 		span {
@@ -60,6 +63,11 @@
 			margin-bottom: 16px;
 			padding-bottom: 10px;
 			border-bottom: 1px solid #EFE5DC;
+			a {
+				&:hover {
+					color: var(--bk-prime-c);
+				}
+			}
 		}
 		p {
 			padding-bottom: 25px;
@@ -68,7 +76,33 @@
 			color: #000000;
 			font-size: 20px;
 			font-weight: 700;
+			position: relative;
 			font-family: var(--bk-heading);
+			&:before {
+				left: 0;
+				right: 0;
+				bottom: 0;
+				width: 0%;
+				content: '';
+				height: 1px;
+				position: absolute;
+				transition: all 400ms ease-in-out;
+				background-color: var(--bk-prime-c);
+			}
+			&:hover {
+				color: var(--bk-prime-c);
+				letter-spacing: 1px;
+				&:before {
+					width: 100%;
+				}
+			}
+		}
+	}
+	&:hover {
+		.item-img {
+			img {
+				transform: scale(1.04);
+			}
 		}
 	}
 }

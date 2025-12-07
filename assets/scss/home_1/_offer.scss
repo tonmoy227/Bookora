@@ -142,8 +142,17 @@
 	}
 }
 .bk-offer-img {
+	transform-origin: top ;
 	.item-img {
 		overflow: hidden;
 		border-radius: 12px;
+		img {
+			transition: all 500ms ease-in-out;
+		}
+		&:hover {
+			img {
+				filter: grayscale(1);
+			}
+		}
 	} 
 }
