@@ -765,6 +765,63 @@ body::-webkit-scrollbar-thumb {
   font-family: var(--bk-heading);
 }
 
+@-webkit-keyframes draw {
+  0% {
+    stroke-dashoffset: 1500;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes draw {
+  0% {
+    stroke-dashoffset: 1500;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+@-webkit-keyframes fillIn {
+  0% {
+    fill: transparent;
+  }
+  100% {
+    fill: currentColor;
+  }
+}
+@keyframes fillIn {
+  0% {
+    fill: transparent;
+  }
+  100% {
+    fill: currentColor;
+  }
+}
+@-webkit-keyframes fadeScale {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale(0.9);
+            transform: scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+@keyframes fadeScale {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale(0.9);
+            transform: scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
 #preloader {
   position: fixed;
   left: 0;
@@ -784,9 +841,27 @@ body::-webkit-scrollbar-thumb {
   -webkit-transform: translateY(-50%);
           transform: translateY(-50%);
 }
-#preloader .preloader-logo img {
-  -webkit-animation: TXTImgIn 1500ms ease-in-out infinite;
-          animation: TXTImgIn 1500ms ease-in-out infinite;
+#preloader .preloader-logo svg {
+  width: 260px;
+  -webkit-animation: fadeScale 1.2s ease-out both;
+          animation: fadeScale 1.2s ease-out both;
+  -webkit-transform-origin: center;
+          transform-origin: center;
+  opacity: 0;
+}
+#preloader .preloader-logo svg path {
+  stroke-width: 2px;
+  fill: transparent;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 1500;
+  stroke-dashoffset: 1500;
+  -webkit-animation: draw 2.8s ease infinite, fillIn 1s ease infinite 2.8s;
+          animation: draw 2.8s ease infinite, fillIn 1s ease infinite 2.8s;
+}
+#preloader .preloader-logo svg path:nth-child(2) {
+  -webkit-animation-delay: 0.5s, 3.3s;
+          animation-delay: 0.5s, 3.3s;
 }
 
 .over-hidden,
@@ -1041,6 +1116,25 @@ a:hover, a:focus {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+}
+
+.bk-scrollup {
+  color: #fff;
+  width: 50px;
+  right: 20px;
+  z-index: 5;
+  height: 50px;
+  bottom: 20px;
+  display: none;
+  font-size: 16px;
+  position: fixed;
+  font-weight: 700;
+  line-height: 50px;
+  border-radius: 10px;
+  background: var(--bk-prime-c);
+}
+.bk-scrollup:hover {
+  color: #fff;
 }
 
 .mt-5 {

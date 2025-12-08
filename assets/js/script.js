@@ -98,7 +98,19 @@ Last change:    00/00/00
 		startVisible:true,
 	});
 
-
+	$(window).on("scroll", function() {
+		if ($(this).scrollTop() > 200) {
+			$('.bk-scrollup').fadeIn();
+		} else {
+			$('.bk-scrollup').fadeOut();
+		}
+	});
+	$('.bk-scrollup').on("click", function()  {
+		$("html, body").animate({
+			scrollTop: 0
+		}, 800);
+		return false;
+	}); 
 	gsap.registerPlugin(ScrollTrigger);
 	
 	// Animation
@@ -127,7 +139,6 @@ Last change:    00/00/00
 	document.addEventListener("DOMContentLoaded", function () {
 		window.addEventListener('load', function(){
 
-			CustomEase.create("ease1", ".645,.045,.355,1");
 
 			let preloader = document.querySelector("#preloader");
 			if (preloader) {
@@ -452,5 +463,14 @@ Last change:    00/00/00
 			});
 		});
 	}
+	$('.bk-offer-item-wrap .accordion-button').on('click', function () {
+		const newImg = $(this).data('img');
+		const imgTag = $('.bk-offer-img img');
 
+		imgTag.addClass('fade');
+
+		setTimeout(() => {
+			imgTag.attr('src', newImg).removeClass('fade');
+		}, 300);
+	});
 })(jQuery);
