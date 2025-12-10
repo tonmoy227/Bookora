@@ -368,7 +368,7 @@ Last change:    00/00/00
 	}; 
 
 
-	const buttons = document.querySelectorAll(".bk-btn1 a , .bk-hero-text .btn-wrap a");
+	const buttons = document.querySelectorAll(".bk-btn1 a , .bk-hero-text .btn-wrap a , .bk-hero2-text .btn-wrap a");
 	buttons.forEach(btn => {
 		const split = new SplitText(btn, { type: "chars" });
 		gsap.set(split.chars, { y: 0, opacity: 1 });
@@ -473,4 +473,64 @@ Last change:    00/00/00
 			imgTag.attr('src', newImg).removeClass('fade');
 		}, 300);
 	});
+
+	if ($('.bk-room2-slider').length > 0 ) {
+		var slider = new Swiper('.bk-room2-slider', {
+			slidesPerView: 5,
+			loop: true,
+			spaceBetween: 28,
+			speed: 1000,
+			autoplay: {
+				enabled: true,
+				delay: 6000
+			},
+			breakpoints: {
+				'1600': {
+					slidesPerView: 5,
+				},
+				'1200': {
+					slidesPerView: 4,
+				},
+				'992': {
+					slidesPerView: 3,
+				},
+				'991': {
+					slidesPerView: 2,
+				},
+				'768': {
+					slidesPerView: 2,
+				},
+				'680': {
+					slidesPerView: 2,
+				},
+				'0': {
+					slidesPerView: 1,
+				},
+			},
+		});
+	};
+
+
+	if(window.innerWidth> 1200){
+		var BKROOMS = gsap.timeline({
+
+			scrollTrigger: {
+				trigger: '.bk-room3-sec',
+				start: "top 0%",
+				end: "top -100%",
+				scrub: 2,
+				pinSpacing: true,
+				pin: ".bk-room3-wrapper",
+			}
+
+		});
+
+		BKROOMS
+		.to(".bk-room3-wrapper .bk-room3-area.item_1 .bk-room3-item .item-room-wrap", {yPercent: -200,  duration: 2})
+		.to(".bk-room3-wrapper .bk-room3-area.item_1 .bk-room3-item .item-room-bg", {yPercent: -100,  duration: 2},"< = 1")
+		.to(".bk-room3-wrapper .bk-room3-area.item_1 .bk-room3-item .item-room-wrap", {yPercent: -200,  duration: 2})
+		.to(".bk-room3-wrapper .bk-room3-area.item_1 .bk-room3-item .item-room-bg", {yPercent: -100,  duration: 2},"< = 1")
+
+	}
+
 })(jQuery);
