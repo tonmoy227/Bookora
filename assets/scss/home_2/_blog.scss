@@ -105,7 +105,8 @@
 			font-size: 26px;
 		}
 	}
-	&:hover {
+	&:hover,
+	&:is(.active) {
 		&:before {
 			transform: translateY(0%);
 		}

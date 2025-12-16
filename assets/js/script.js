@@ -653,4 +653,15 @@ Last change:    00/00/00
 		});
 	}
 
+
+	$('.bk-blog2-feed-wrap').each(function () {
+		var $wrap = $(this);
+		var $items = $wrap.find('.bk-blog2-item');
+
+		$items.on('mouseover', function () {
+			$items.removeClass('active');
+			$(this).addClass('active');
+		});
+	});
+
 })(jQuery);
