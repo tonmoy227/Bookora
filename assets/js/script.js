@@ -204,6 +204,12 @@ Last change:    00/00/00
 				BKHero
 				.from(".bk-hero-text .hero-slug", { scaleX: 0,  x: 100, duration: 1, transformOrigin: "left",  ease: "power1.out" })
 				.from(".bk-hero-text .btn-wrap", {   y: 100, opacity: 0, duration: 1, transformOrigin: "left",  ease: "power1.out" })
+
+
+				const BKHero2 = gsap.timeline();
+				BKHero2
+				.from(".bk-hero2-text .hero-slug", { scaleX: 0,  x: 100, duration: 1, transformOrigin: "left",  ease: "power1.out" })
+				.from(".bk-hero2-text .btn-wrap", {   y: 100, opacity: 0, duration: 1, transformOrigin: "left",  ease: "power1.out" })
 				
 			}, 700);
 		})		
@@ -290,24 +296,6 @@ Last change:    00/00/00
 	};
 
 	
-	// if (window.matchMedia("(min-width: 1200px)").matches) {
-	// 	var collab = gsap.timeline({
-	// 		scrollTrigger: {
-	// 			trigger: ".bk-testimonial-sec",
-	// 			start: "top 20%",
-	// 			toggleActions: "play reverse play reverse",
-	// 			markers: false,
-	// 		},
-	// 	})
-	// 	collab
-	// 	.from(".bk-testi-item", {
-	// 		yPercent: 100,
-	// 		opacity: 0,
-	// 		ease: "elastic.out(1,0.8)",
-	// 		duration: 2,
-	// 		stagger: .3,
-	// 	})
-	// }
 
 	if (window.matchMedia("(min-width: 1200px)").matches) {
 		let areas = Array.from(document.querySelectorAll(".bk-testi-area"));
@@ -511,26 +499,158 @@ Last change:    00/00/00
 	};
 
 
-	if(window.innerWidth> 1200){
+	if(window.innerWidth> 992){
 		var BKROOMS = gsap.timeline({
 
 			scrollTrigger: {
 				trigger: '.bk-room3-sec',
 				start: "top 0%",
 				end: "top -100%",
-				scrub: 2,
+				scrub: 1,
 				pinSpacing: true,
-				pin: ".bk-room3-wrapper",
+				pin: ".bk-room3-sec",
 			}
 
 		});
 
 		BKROOMS
-		.to(".bk-room3-wrapper .bk-room3-area.item_1 .bk-room3-item .item-room-wrap", {yPercent: -200,  duration: 2})
-		.to(".bk-room3-wrapper .bk-room3-area.item_1 .bk-room3-item .item-room-bg", {yPercent: -100,  duration: 2},"< = 1")
-		.to(".bk-room3-wrapper .bk-room3-area.item_1 .bk-room3-item .item-room-wrap", {yPercent: -200,  duration: 2})
-		.to(".bk-room3-wrapper .bk-room3-area.item_1 .bk-room3-item .item-room-bg", {yPercent: -100,  duration: 2},"< = 1")
+		.to(".bk-room3-item:is(.item_3)", {yPercent: -200,  duration: 2})
+		.to(".bk-room3-img .item_3_img", {yPercent: -200,  duration: 2},"<")
+		.to(".bk-room3-item:is(.item_2)", {yPercent: -200,  duration: 2})
+		.to(".bk-room3-img .item_2_img", {yPercent: -200,  duration: 2},"<")
+	}
 
+	if (window.matchMedia("(min-width: 1200px)").matches) {
+		gsap.to(".bk-faci2-title", {
+			scrollTrigger: {
+				trigger: ".bk-faci2-sec",
+				start: "top 0%", 
+				end: "bottom bottom", 
+				pin: ".bk-faci2-title", 
+				pinSpacing: false,
+				markers: false
+			}
+		});
+		const items = gsap.utils.toArray('.bk-faci2-item .inner-item');
+		items.forEach(animateItem);
+		function animateItem(el) {
+			gsap.timeline({
+				scrollTrigger: {
+					trigger: el,
+					scrub: 1,
+					start: "top 90%",
+					end: "bottom 50%",
+					toggleActions: "play none none reverse",
+					markers: false
+				}
+			})
+			.set(el, {
+				perspective: 1000,
+				rotatey: "-90deg",
+				transformStyle: "preserve-3d",
+				transformOrigin: "50% 100%"
+			})
+			.from(el, {
+				scaleY: 0,
+				opacity: 0
+			});
+		}
+	}
+
+	if (window.matchMedia("(min-width: 1200px)").matches) {
+		var TechHero = gsap.timeline({
+			scrollTrigger: {
+				trigger: '.bk-testi2-content',
+				start: "top 10%",
+				end: "top -100%",
+				scrub: 1.5,
+				pin: true,
+				pinSpacing: true,
+				markers: false
+			}
+		});
+
+		TechHero
+		.from( ".bk-testi2-item:nth-child(1)" , {yPercent: 50, xPercent: 105, duration: 1, ease: "power1.out" },"<")
+		.from( ".bk-testi2-item:nth-child(2)" , {yPercent: 50,  duration: 1, ease: "power1.out" },"<")
+		.from( ".bk-testi2-item:nth-child(3)" , {yPercent: 50, xPercent: -105, duration: 1, ease: "power1.out" },"<")
+		.from( ".bk-testi2-item:nth-child(4)" , {yPercent: -56, xPercent: 105, duration: 1, ease: "power1.out" },"<")
+		.from( ".bk-testi2-item:nth-child(5)" , {yPercent: -56, xPercent: 0, duration: 1, ease: "power1.out" },"<")
+		.from( ".bk-testi2-item:nth-child(6)" , {yPercent: -56, xPercent: -105, duration: 1, ease: "power1.out" },"<")
+	}
+
+
+
+	var EdProg = gsap.timeline({
+		scrollTrigger: {
+			trigger: ".bk-cus-content",
+			start: "top 70%",
+			toggleActions: "play reverse play reverse",
+			markers: false,
+		},
+	})
+	EdProg
+	.from(".bk-cus-item", {
+		yPercent: 100,
+		opacity: 0,
+		ease: "back.out(1.5)",
+		duration: 1, 
+		stagger: -.2,
+	})
+
+	var BKTEAM = gsap.timeline({
+		scrollTrigger: {
+			trigger: ".bk-team-content",
+			start: "top 70%",
+			toggleActions: "play reverse play reverse",
+			markers: false,
+		},
+	})
+	BKTEAM
+	.from(".bk-team-item", {
+		xPercent: 100,
+		opacity: 0,
+		ease: "back.out(1.5)",
+		duration: 1, 
+		stagger: -.2,
+	})
+
+	if($(".bottom-text").length) {
+		var aniTitle1 = $(".bottom-text");
+		if(aniTitle1.length == 0) return; gsap.registerPlugin(SplitText); aniTitle1.each(function(index, el) {
+
+			el.split = new SplitText(el, { 
+				type: "lines,words,chars",
+				linesClass: "split-line"
+			});
+
+			gsap.set(el, { perspective: 400 });
+
+			if( $(el).hasClass('bottom-text') ){
+				gsap.set(el.split.chars, {
+					yPercent: 100,
+					opacity: 0,
+
+				});
+			}
+			el.anim = gsap.to(el.split.chars, {
+				scrollTrigger: {
+					trigger: el,
+					start: "top 90%",
+					toggleActions: "play reverse play reverse",
+					markers: false,
+
+				},
+
+				yPercent: 0,
+				xPercent: 0,
+				opacity: 1,
+				duration: 2,
+				stagger: .1,
+				ease: "bounce.out",
+			});
+
+		});
 	}
 
 })(jQuery);

@@ -224,7 +224,6 @@
 		z-index: -1;
 		width: 100%;
 		height: 100%;
-		position: relative;
 		&:before {
 			top: 0;
 			left: 0;
@@ -393,5 +392,54 @@
 			font-size: 18px;
 			max-width: 225px;
 		}
+	}
+}
+
+.bk-book2-title {
+	h2 {
+		color: #fff;
+		margin: 0 auto;
+		font-size: 60px;
+		max-width: 700px;
+		font-weight: 700;
+		line-height: 1.2;
+		@media #{$sm,$xs} {
+			font-size: 50px;
+		}
+		@media #{$xxs} {
+			font-size: 40px;
+		}
+	}
+}
+.bk-book-list {
+	text-align: center;
+	padding-bottom: 55px;
+	li {
+		color: #fff;
+		font-size: 16px;
+		font-weight: 500;
+		margin: 0px 100px;
+		position: relative;
+		@media #{$sm,$xs,$xxs} {
+			margin: 0px 20px;
+		}
+		&:before {
+			top: 10px;
+			width: 6px;
+			height: 6px;
+			left: -100px;
+			content: '';
+			position: absolute;
+			border-radius: 100%;
+			background-color: #fff;
+			@media #{$sm,$xs,$xxs} {
+				left: -15px;
+			}
+		}
+	}
+}
+.bk-book2-sec {
+	.bk-filter-area {
+		margin-bottom: 190px;
 	}
 }
