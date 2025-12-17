@@ -516,7 +516,7 @@ Last change:    00/00/00
 		BKROOMS
 		.to(".bk-room3-item:is(.item_3)", {yPercent: -200,  duration: 2})
 		.to(".bk-room3-img .item_3_img", {yPercent: -200,  duration: 2},"<")
-		.to(".bk-room3-item:is(.item_2)", {yPercent: -200,  duration: 2})
+		.to(".bk-room3-item:is(.item_2)", {yPercent: -200,  duration: 2},"< = .8")
 		.to(".bk-room3-img .item_2_img", {yPercent: -200,  duration: 2},"<")
 	}
 
@@ -653,7 +653,6 @@ Last change:    00/00/00
 		});
 	}
 
-
 	$('.bk-blog2-feed-wrap').each(function () {
 		var $wrap = $(this);
 		var $items = $wrap.find('.bk-blog2-item');
@@ -663,5 +662,27 @@ Last change:    00/00/00
 			$(this).addClass('active');
 		});
 	});
+
+
+	if (window.matchMedia("(min-width: 1200px)").matches) {
+		var TechHero = gsap.timeline({
+			scrollTrigger: {
+				trigger: ".bk-facility3-sec",
+				start: "top 30%",
+				end: "top -30%",
+				toggleActions: "play none none reverse",
+				scrub: true,
+				markers: false,
+			}
+
+		});
+
+		TechHero
+		.from( ".bk-facility3-item:nth-child(1)" , {x: 1200,y: -300,rotate: -4, duration: 3, ease: "power1.out" })
+		.from( ".bk-facility3-item:nth-child(2)" , {x: 800,y: -300,rotate: 4, duration: 3, ease: "power1.out" },"<")
+		.from( ".bk-facility3-item:nth-child(3)" , {x: 400,y: -300,rotate: -8, duration: 3, ease: "power1.out" },"<")
+		.from( ".bk-facility3-item:nth-child(4)" , {x: 0,y: -300,rotate: 8, duration: 3, ease: "power1.out" },"<")
+
+	}
 
 })(jQuery);
