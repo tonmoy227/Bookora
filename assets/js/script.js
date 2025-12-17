@@ -664,7 +664,7 @@ Last change:    00/00/00
 	});
 
 
-	if (window.matchMedia("(min-width: 1200px)").matches) {
+	if (window.matchMedia("(min-width: 1600px)").matches) {
 		var TechHero = gsap.timeline({
 			scrollTrigger: {
 				trigger: ".bk-facility3-sec",
