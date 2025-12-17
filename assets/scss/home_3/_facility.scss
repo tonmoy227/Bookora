@@ -40,6 +40,12 @@
 	gap: 24px;
 	display: grid;
 	grid-template-columns: 1fr 1fr 1fr 1fr;
+	@media #{$lg,$md,$sm} {
+		grid-template-columns: 1fr 1fr;
+	}
+	@media #{$xs,$xxs} {
+		grid-template-columns: 1fr;
+	}
 }
 .bk-facility3-item {
 	z-index: 1;
@@ -73,6 +79,12 @@
 		background-color: #F7F6F2;
 		-webkit-transition: all 300ms ease-in-out;
 		transition: all 300ms ease-in-out;
+		@media #{$xxl,$xl,$lg,$md,$sm,$xs,$xxs} {
+			left: 0;
+			right: 0;
+			width: 100%; 
+			margin: 0 auto;
+		}
 	}
 	&:nth-child(even) {
 		background-color: #EFE5DC;
