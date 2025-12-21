@@ -24,6 +24,7 @@
 		overflow: hidden;
 		img {
 			border-radius: 24px;
+			transition: all 500ms ease-in-out;
 		}
 	}
 	.item-text {
@@ -36,6 +37,9 @@
 			font-size: 32px;
 			font-weight: 700;
 			padding-bottom: 15px;
+			&:hover {
+				color: var(--bk-prime-c);
+			}
 		}
 		ul {
 			padding-bottom: 12px;
@@ -88,6 +92,11 @@
 		}
 	}
 	&:hover {
+		.item-img {
+			img {
+				filter: grayscale(1);
+			}
+		}
 		.item-text {
 			background-color: #EFE5DC;
 		}

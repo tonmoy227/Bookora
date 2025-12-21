@@ -210,7 +210,14 @@ Last change:    00/00/00
 				BKHero2
 				.from(".bk-hero2-text .hero-slug", { scaleX: 0,  x: 100, duration: 1, transformOrigin: "left",  ease: "power1.out" })
 				.from(".bk-hero2-text .btn-wrap", {   y: 100, opacity: 0, duration: 1, transformOrigin: "left",  ease: "power1.out" })
-				
+
+				const BKHero3 = gsap.timeline();
+				BKHero3
+				.from(".bk-hero3-content .bg_shape", { height: 0, duration: 1.5, transformOrigin: "top",  ease: "power1.out" })
+				.from(".bk-hero3-form .form-wrapper .item-field:nth-child(1)", {   y: 30, opacity: 0, duration: 1, transformOrigin: "top",  ease: "power1.out" },"< = .5")
+				.from(".bk-hero3-form .form-wrapper .item-field:nth-child(2)", {   y: 30, opacity: 0, duration: 1, transformOrigin: "top",  ease: "power1.out" },"< = .2")				
+				.from(".bk-hero3-form .form-wrapper .item-field:nth-child(3)", {   y: 30, opacity: 0, duration: 1, transformOrigin: "top",  ease: "power1.out" },"< = .2")				
+				.from(".bk-hero3-form .form-wrapper .item-field:nth-child(4)", {   y: 30, opacity: 0, duration: 1, transformOrigin: "top",  ease: "power1.out" },"< = .2")								
 			}, 700);
 		})		
 	});
@@ -756,10 +763,10 @@ Last change:    00/00/00
 				nextEl: ".bk-gl-next",
 				prevEl: ".bk-gl-prev",
 			},
-			// autoplay: {
-			// 	enabled: true,
-			// 	delay: 6000
-			// },
+			autoplay: {
+				enabled: true,
+				delay: 6000
+			},
 			breakpoints: {
 				'1600': {
 					slidesPerView: 3,
@@ -782,5 +789,54 @@ Last change:    00/00/00
 	};
 
 
+	const TopView = document.querySelectorAll('.bk-fact-item');
 
+	TopView.forEach((box) => {
+		ScrollTrigger.create({
+			trigger: box,
+			toggleActions: 'play reverse play reverse',
+			onEnter: () => box.classList.add('in-view'),
+			onLeaveBack: () => box.classList.remove('in-view'),
+			markers: false,
+		});
+	});
+
+
+
+	if (window.matchMedia("(min-width: 1200px)").matches) { 
+		var Testi_pin = document.querySelectorAll(".bk-blog3-text")
+		Testi_pin.forEach((item) => {
+			gsap.to(item, {
+				scrollTrigger: {
+					trigger: item,
+					markers: false,
+					pin: true,
+					pinSpacing: false,
+					start: "top 15%",
+					end: "bottom 50%",
+				},
+			});
+		});
+	}
+
+	$('.zoom-gallery').magnificPopup({
+		delegate: 'a',
+		type: 'image',
+		closeOnContentClick: false,
+		closeBtnInside: false,
+		mainClass: 'mfp-with-zoom mfp-img-mobile',
+		gallery: {
+			enabled: true
+		},
+		zoom: {
+			enabled: true,
+			duration: 300, 
+			opener: function(element) {
+				return element.find('img');
+			}
+		}
+	});
+
+
+	
 })(jQuery);

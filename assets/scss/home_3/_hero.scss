@@ -100,6 +100,10 @@
 			font-weight: 500;
 			margin-top: 28px;
 			background-color: #004040;
+			transition: all 300ms ease-in-out;
+			&:hover {
+				background-color: var(--bk-prime-c);
+			}
 		}
 	}
 }

@@ -64,6 +64,7 @@
 		@media #{$xxs} {
 			font-size: 36px;
 		}
+
 	}
 }
 .bk-blog3-content {
@@ -89,6 +90,9 @@
 		overflow: hidden;
 		margin-bottom: 20px;
 		border-radius: 12px;
+		img {
+			transition: all 500ms ease-in-out;
+		}
 	}
 	.item-text {
 		span {
@@ -103,12 +107,26 @@
 			@media #{$lg} {
 				font-size: 24px;
 			}
+			&:hover {
+				color: var(--bk-prime-c);
+			}
 		}
 		.blog_more {
 			color: #000000;
 			font-size: 18px;
 			font-weight: 700;
 			font-family: var(--bk-heading);
+			&:hover {
+				color: #004040;
+				letter-spacing: 1px;
+			}
+		}
+	}
+	&:hover {
+		.item-img {
+			img {
+				transform: scale(1.1);
+			}
 		}
 	}
 }
