@@ -352,6 +352,42 @@ a {
 		span {
 			opacity: .6;
 		}
+		&:is(.ver_2) {
+			font-size: 48px;
+			@media #{$md} {
+				font-size: 42px;
+			}
+			@media #{$sm} {
+				font-size: 38px;
+			}
+			@media #{$xs} {
+				font-size: 34px;
+			}
+			@media #{$xxs} {
+				font-size: 30px;
+			}
+			@media #{$xxxs} {
+				font-size: 28px;
+			}
+		}
+		&:is(.ver_3) {
+			font-size: 60px;
+			@media #{$md} {
+				font-size: 55px;
+			}
+			@media #{$sm} {
+				font-size: 50px;
+			}
+			@media #{$xs} {
+				font-size: 45px;
+			}
+			@media #{$xxs} {
+				font-size: 40px;
+			}
+			@media #{$xxxs} {
+				font-size: 34px;
+			}
+		}
 	}
 	p {
 		margin-top: 16px;	
